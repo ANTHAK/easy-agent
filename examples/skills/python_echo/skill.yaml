@@ -1,0 +1,11 @@
+name: python_echo
+description: Return the prompt and metadata through a Python hook.
+entry_type: python
+hook: hook.py:run
+input_schema:
+  type: object
+  properties:
+    prompt:
+      type: string
+  required:
+    - prompt

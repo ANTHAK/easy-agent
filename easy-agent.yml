@@ -1,0 +1,47 @@
+model:
+  provider: deepseek
+  protocol: auto
+  model: deepseek-chat
+  base_url: https://api.deepseek.com
+  api_key_env: DEEPSEEK_API_KEY
+  timeout_seconds: 60
+  max_tokens: 2048
+  temperature: 0.1
+
+graph:
+  name: baseline
+  entrypoint: coordinator
+  agents:
+    - name: coordinator
+      system_prompt: |
+        You are the coordinator agent. Use available tools or delegate to sub-agents.
+      tools:
+        - python_echo
+        - command_echo
+      sub_agents:
+        - analyst
+      max_iterations: 6
+    - name: analyst
+      system_prompt: |
+        You are a focused sub-agent that produces concise analysis.
+      tools:
+        - python_echo
+      sub_agents: []
+      max_iterations: 4
+  nodes: []
+
+skills:
+  - path: examples/skills
+
+mcp: []
+
+storage:
+  path: .easy-agent
+  database: state.db
+
+logging:
+  level: INFO
+
+security:
+  allowed_commands:
+    - ["cmd", "/c", "echo"]

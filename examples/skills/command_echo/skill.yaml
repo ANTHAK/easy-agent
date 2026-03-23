@@ -1,0 +1,16 @@
+name: command_echo
+description: Echo the prompt through a local command.
+entry_type: command
+command:
+  - cmd
+  - /c
+  - echo
+args_template:
+  - "{prompt}"
+input_schema:
+  type: object
+  properties:
+    prompt:
+      type: string
+  required:
+    - prompt
