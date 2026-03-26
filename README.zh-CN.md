@@ -81,6 +81,16 @@
 - 使用 SQLite 与 JSONL 持久化 runs、traces、checkpoints、session state。
 - 内置 BFCL 子集与 tau2 mock 子集的 public evaluation 能力。
 
+## 未来规划
+
+下面这些内容是下一阶段希望补强的方向，重点是可靠性、安全性和互操作性，不代表仓库当前已经全部实现。
+
+- 在敏感工具执行、handoff 和长任务 checkpoint 恢复前增加 human approval 与 interrupt points。
+- 为 graph 与 team workflow 增加 time-travel replay 和可分支的 resume 能力。
+- 扩展 MCP 支持，补上 roots、sampling、elicitation 与带授权感知的远程传输能力。
+- 增加基于 A2A 风格协议的 remote agent federation。
+- 增强 executor / workbench 隔离层，用于长生命周期的代码执行、工具运行和环境任务。
+
 ## 架构说明
 
 这个运行时刻意保持白盒。关键层次是可以看见、可以替换、可以测试的。
@@ -266,8 +276,6 @@ uv run easy-agent doctor -c easy-agent.yml
 uv run easy-agent harness list -c configs/harness.example.yml
 uv run easy-agent teams list -c configs/teams.example.yml
 ```
-
-在 Windows 环境下，稳定运行 pytest 时应显式指定位于系统临时目录下的 `--basetemp`。
 
 ## 设计参考
 

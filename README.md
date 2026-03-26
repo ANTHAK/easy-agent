@@ -81,6 +81,16 @@ Many agent repositories jump straight from "call a model" to "ship a product". T
 - SQLite plus JSONL persistence for runs, traces, checkpoints, and session state.
 - Public evaluation helpers for BFCL subset cases and tau2 mock cases.
 
+## Roadmap
+
+These are the next reliability, safety, and interoperability upgrades, not claims about what the repository already ships today.
+
+- Human approval and interrupt points before sensitive tools, handoffs, and long-running checkpoint resumes.
+- Time-travel replay and branchable resume from historical checkpoints for graph and team workflows.
+- Richer MCP support for roots, sampling, elicitation, and authorization-aware remote transports.
+- Remote agent federation through A2A-style agent-to-agent communication.
+- Stronger executor and workbench isolation for long-lived code, tool, and environment tasks.
+
 ## Architecture
 
 The runtime is intentionally white-box. The important layers are visible and replaceable.
@@ -266,8 +276,6 @@ uv run easy-agent doctor -c easy-agent.yml
 uv run easy-agent harness list -c configs/harness.example.yml
 uv run easy-agent teams list -c configs/teams.example.yml
 ```
-
-For Windows, a stable pytest run should use an explicit `--basetemp` rooted under the system temporary directory.
 
 ## Design References
 

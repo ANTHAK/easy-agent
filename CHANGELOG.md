@@ -15,12 +15,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Added CLI support for `easy-agent harness list`, `easy-agent harness run`, and `easy-agent harness resume`.
 - Added `configs/harness.example.yml` and `tests/integration/test_harness_real.py` for a concrete harness entrypoint and live DeepSeek smoke coverage.
 - Added unit coverage for harness initialization, resume, replan, team worker targets, config validation, storage persistence, and doctor output.
+- Added forward-looking README roadmap sections covering human approvals, time-travel resume, richer MCP support, A2A-style federation, and stronger executor isolation.
 
 ### Changed
 
 - Reworked `easy-agent.yml` to include a baseline local harness example alongside the direct runtime entrypoint.
 - Rewrote both READMEs so they explain the project in plain language first and document the runtime layers, harness loop, protocols, and Tool Calling 2.0 model more clearly.
 - Clarified the runtime architecture around `scheduler`, `orchestrator`, `registry`, `storage`, `protocol adapters`, and the new `harness` layer.
+- Removed machine-specific Windows temp-path wording from the README set so tracked docs no longer expose local filesystem details.
 
 ## [0.3.0] - 2026-03-26
 
